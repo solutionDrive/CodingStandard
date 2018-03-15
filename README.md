@@ -10,12 +10,12 @@ Installation & usage
 1. Install this package:
 
     ```bash
-    $ composer require --dev solutionDrive/coding-standard
+    $ composer require --dev solutiondrive/coding-standard
     ```
     
 2. Include a configuration file in your `easy-coding-standard.neon`:
 
     ```neon
     includes:
-        - vendor/solutionDrive/coding-standard/easy-coding-standard.neon 
+        - vendor/solutiondrive/coding-standard/easy-coding-standard.neon 
     ```
