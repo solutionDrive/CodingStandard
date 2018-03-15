@@ -1,0 +1,10 @@
+{
+    "name": "solutionDrive/coding-standard",
+    "description": "solutionDrive coding standard.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+
+        "symplify/easy-coding-standard": "^2.5|^3.2"
+    }
+}
