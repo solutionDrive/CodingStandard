@@ -1,7 +1,7 @@
 includes:
-    - /composer/vendor/symplify/easy-coding-standard/config/php_codesniffer/psr2.neon
-    - /composer/vendor/symplify/easy-coding-standard/config/php_cs_fixer/psr2.neon
-    - /composer/vendor/symplify/easy-coding-standard/config/clean-code.neon
+    - ../../../vendor/symplify/easy-coding-standard/config/php_codesniffer/psr2.neon
+    - ../../../vendor/symplify/easy-coding-standard/config/php_cs_fixer/psr2.neon
+    - ../../../vendor/symplify/easy-coding-standard/config/clean-code.neon
 
 checkers:
     PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
