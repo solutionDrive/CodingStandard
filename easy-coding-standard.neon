@@ -107,6 +107,7 @@ checkers:
 
     # Throwable
     - SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff
+    - SlevomatCodingStandard\Sniffs\Commenting\RequireOneLinePropertyDocCommentSniff
 
     PhpCsFixer\Fixer\Comment\HeaderCommentFixer:
         header:
