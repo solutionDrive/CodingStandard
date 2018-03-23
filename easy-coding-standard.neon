@@ -109,6 +109,14 @@ checkers:
     - SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff
     - SlevomatCodingStandard\Sniffs\Commenting\RequireOneLinePropertyDocCommentSniff
 
+    SlevomatCodingStandard\Sniffs\Commenting\DocCommentSpacingSniff:
+        linesCountBeforeFirstContent: 0
+        linesCountBetweenDifferentAnnotationsTypes: 1
+
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\MemberVarSpacingSniff:
+        spacing: 1
+        spacingBeforeFirst: 0
+
     PhpCsFixer\Fixer\Comment\HeaderCommentFixer:
         header:
             """
