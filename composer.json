@@ -2,9 +2,28 @@
     "name": "solutiondrive/coding-standard",
     "description": "solutionDrive coding standard.",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "solutionDrive",
+            "email": "entwickler@solutiondrive.de"
+        }
+    ],
     "require": {
         "php": "^7.1",
 
         "symplify/easy-coding-standard": "^2.5|^3.2"
+    },
+    "autoload": {
+    },
+    "extra": {
+        "phar-builder": {
+            "compression": "GZip",
+            "name": "coding-standard-standalone.phar",
+            "output-dir": "./build",
+            "entry-point": "./vendor/bin/ecs",
+            "include-dev": false,
+            "include" : [],
+            "skip-shebang" : false
+        }
     }
 }
