@@ -32,9 +32,7 @@ install:
 
 script:
     - composer validate --strict
-#    - vendor/bin/ecs check tests
-# This does not work by now because of the paths in the neon file.
-# @TODO Find a solution to be able to test the config here and use it in project later.
+    - vendor/bin/ecs check tests
 
 before_deploy:
     - phar-builder package --name=${TARGET_BASENAME}.ecs${ECS_SHORT_VERSION}.php${TRAVIS_PHP_VERSION}.phar
