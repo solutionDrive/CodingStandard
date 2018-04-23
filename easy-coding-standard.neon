@@ -1,9 +1,102 @@
-includes:
-    - ../../../vendor/symplify/easy-coding-standard/config/php_codesniffer/psr2.neon
-    - ../../../vendor/symplify/easy-coding-standard/config/php_cs_fixer/psr2.neon
-    - ../../../vendor/symplify/easy-coding-standard/config/clean-code.neon
-
 checkers:
+    #  INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/php_codesniffer/psr2.neon
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\NamespaceDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\UseDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\ClassDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\PropertyDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\EndFileNewlineSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\ClosingTagSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ControlStructureSpacingSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\SwitchDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff
+    - PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionClosingBraceSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\Files\ByteOrderMarkSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineEndingsSniff:
+        eolChar: \n
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
+        ignoreBlankLines: true
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\DisallowMultipleStatementsSniff
+    PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ScopeIndentSniff:
+        ignoreIndentationTokens:
+            - T_COMMENT
+            - T_DOC_COMMENT_OPEN_TAG
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseKeywordSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseConstantSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\MethodScopeSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeKeywordSpacingSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\LowercaseFunctionKeywordsSniff
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationArgumentSpacingSniff:
+        equalsSpacing: 1
+    - PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\ValidDefaultValueSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ControlSignatureSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeClosingBraceSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForEachLoopDeclarationSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForLoopDeclarationSniff
+    - PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\LowercaseDeclarationSniff
+    - PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff
+
+
+    #  INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/php_cs_fixer/psr2.neon
+    - PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer
+    - PhpCsFixer\Fixer\Basic\BracesFixer
+    - PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer
+    - PhpCsFixer\Fixer\ControlStructure\ElseifFixer
+    - PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer
+    - PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer
+    - PhpCsFixer\Fixer\Whitespace\LineEndingFixer
+    - PhpCsFixer\Fixer\Casing\LowercaseConstantsFixer
+    - PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer
+    PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer:
+        ensure_fully_multiline: true
+    - PhpCsFixer\Fixer\ControlStructure\NoBreakCommentFixer
+    - PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer
+    - PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer
+    - PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer
+    - PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer
+    - PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer
+    - PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer
+    PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
+        elements:
+            - property
+    - PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer
+    - PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer
+    - PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer
+    - PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer
+    - PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer
+    - PhpCsFixer\Fixer\Basic\EncodingFixer
+    - PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer
+
+
+    # INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/clean-code.neon
+    # use short array []
+    PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+        syntax: short
+    # detect dead code
+    - SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff
+    # drop dead use namespaces
+    - PhpCsFixer\Fixer\Import\NoUnusedImportsFixer
+    # and sort them A → Z
+    - PhpCsFixer\Fixer\Import\OrderedImportsFixer
+    # $value;;
+    - PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer
+    # final class { ... protected ... }
+    - PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer
+    # continue (2);
+    - PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer
+    # { echo 'hi'; }
+    - PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer
+
+
+
     PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
         spacing: one
     - PhpCsFixer\Fixer\Operator\NewWithBracesFixer
