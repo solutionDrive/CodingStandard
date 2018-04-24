@@ -34,8 +34,8 @@ script:
     - vendor/bin/ecs check tests
 
 after_success:
-    - if [ "${TRAVIS_PHP_VERSION}" == "7.2" ]; then cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon; fi
-    - if [ "${TRAVIS_PHP_VERSION}" == "7.2" ]; then cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] && [ "${ECS_SHORT_VERSION}" == "3.2" ] ); then cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] && [ "${ECS_SHORT_VERSION}" == "3.2" ] ); then cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon; fi
 
 before_deploy:
     - box build
