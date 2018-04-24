@@ -16,6 +16,11 @@ env:
         - ECS_VERSION=2.5.* ECS_SHORT_VERSION=2.5
         - ECS_VERSION=3.2.* ECS_SHORT_VERSION=3.2
 
+stages:
+  - name: after_success
+    if: env(TRAVIS_PHP_VERSION) = "7.2"
+
+
 cache:
     directories:
         - ~/.composer/cache/files
@@ -33,11 +38,13 @@ script:
     - composer validate --strict
     - vendor/bin/ecs check tests
 
+after_success:
+    - cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon
+    - cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon
+
 before_deploy:
     - box build
     - mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs${ECS_SHORT_VERSION}.php${TRAVIS_PHP_VERSION}.phar
-    - cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon
-    - cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon
 
 deploy:
   provider: s3
