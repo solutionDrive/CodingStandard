@@ -57,4 +57,4 @@ deploy:
   upload-dir: "phar/test"
   acl: "public-read"
   on:
-    branch: inline-neon
+    branch: try-for-php-7-0
