@@ -36,6 +36,8 @@ script:
 before_deploy:
     - box build
     - mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs${ECS_SHORT_VERSION}.php${TRAVIS_PHP_VERSION}.phar
+    - cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon
+    - cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon
 
 deploy:
   provider: s3
