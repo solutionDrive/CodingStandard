@@ -1,5 +1,5 @@
 /.idea/
-!/.build/.gitkeep
-/.build/**
+!/build/.gitkeep
+/build/**
 /composer.lock
 /vendor/
