@@ -9,7 +9,6 @@ php:
 
 env:
     global:
-        - TARGET_BASENAME="coding-standard-standalone"
         - S3_BUCKET="build-tools.cloud.solutiondrive.de"
         - secure: "Hb3drxYS/eoSh5A49PEjmd/q4cKCB1eHba6GXnu6dQPKWCbiCgPMwpPMFJN+Srv+hMAKOakqvur/7PNVlt0cTtbJB/I6HYs+2UYduPJZj8CQUt1l+CV8b3lICdRG4gCEMDPvAbHotbzWwQHThtRWmBsUTf1xRYZ76qnk/09pOkuHwh3QY3IEJCGxMBsoc9ofnkJgsgYu1sxhiLrd0OPe1mzNM60Hmo0EpKT8khFCLv91BT12F1Dl66LVvaXeIn7/whBnThg7ayJAcEFt9KOKzV+OSEieu2XfM74JtO4OqZlFv/8b0BLfDgiVAyqHM/VwSk53mWGwdqd+fapxrbuoN3xFePBIvZl70ccKxs22mQuNLjBS6r3eJ3ubGIzvhXzhWdTW4uBxlwQj4qghAjl511waxOzIrqcG50J8w+DUDksptGGzhWvwVgbUWwhfUi0xkUe19uBH+YcVFvidrZvaCOa66Y1V2jk+grM62bGq2n90Ww4ylatcU8mRfkors3HsKdhWgDWjIHxpStYN03/FAT9pt19yYLuLdSzGrA1ZTqA8g+H2clXyTL5bYRD+IMvZX6wJe9mNg72h85FveA9QiI+DO4WxxbX/n41iGz1hCINwm6WJskBKTnJcDNGvAp7afYrEc3qlH/FfuuDBQtdW2Vr3YRrawRomnVIGxuhDTEU="
         - secure: "Nbou7Qa/6+IotmDp7V4gLigNpS8R9iDVlBo/u0VJE8yOr8wuJvUOCpXeX5AJ2ucXoH/y6DO11osE/M9GcG5AxnoiMhHvEfkgr61rZDHwEymtKqr0L9kp5q1mMPkSuDbVJ22QGjqOtU0aBQ7kuChKq6ujGaSgA9iH+sG+YDkcLANkugfcEkhrct+e3nUv/06ctMhmzC42MFA6yVd/WUT9oKJ/D0AHym4JYA1z+/o/M77xAeBXmy9MrtG7dQ+cU3rSTCc14lGky1F9DxMKisr7ruhI7uTpDrTTgJJ6IMBEndGr0IuNw3+f9v+nVJxdMo3weAtFYRC5FKR7qiMs1vtjLv3vyNOAWrd0zPUkfC8xbtk1Gb2UYNQTKKUapEKZYXmysaPbtc7nL8BQVdV9FA7nGtJQJ8upQLKzThxgNasAEocY7mej7VDEXy8dnKG2sNgl4HqERF7h6p9ib29gd75GgipGvV9ZymDwqILxVdMe2TDoHmxUv3xdyX/u/Bz8LPGColz8cSEUoJcpQPKF8L/GbHvCvz6sR0GDGe9Li+8KSybWKBLHZBn9umsFj2LbJ1fAkDmYDJJJ3nxHuavSJw02eHOKoEzsoCm6vbGpzBWUt2QvYb7qmUaykRRGsR64oat1TI1B+OSzuItbMbAHU9Un9LW39kyNNfRI/3NKHunqrro="
@@ -26,18 +25,22 @@ before_install:
     - export PATH=$PATH:$HOME/.composer/vendor/bin
 
 install:
-    - composer global require macfja/phar-builder
+    - composer global require kherge/box
     - composer require symplify/easy-coding-standard:${ECS_VERSION} --no-update --no-scripts --prefer-dist
     - composer update --prefer-dist
 
 script:
     - composer validate --strict
-#    - vendor/bin/ecs check tests
-# This does not work by now because of the paths in the neon file.
-# @TODO Find a solution to be able to test the config here and use it in project later.
+    - vendor/bin/ecs check tests
+
+after_success:
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] && [ "${ECS_SHORT_VERSION}" == "3.2" ] ); then cp ./easy-coding-standard.neon ./build/easy-coding-standard-php71.neon; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] && [ "${ECS_SHORT_VERSION}" == "3.2" ] ); then cp ./easy-coding-standard-php70.neon ./build/easy-coding-standard-php70.neon; fi
+    # The conditional checks here make sure that the S3 upload is not triggered at each matrix build. (save some data transfer cents...)
 
 before_deploy:
-    - phar-builder package --name=${TARGET_BASENAME}.ecs${ECS_SHORT_VERSION}.php${TRAVIS_PHP_VERSION}.phar
+    - box build
+    - mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs${ECS_SHORT_VERSION}.php${TRAVIS_PHP_VERSION}.phar
 
 deploy:
   provider: s3
