@@ -236,10 +236,3 @@ parameters:
             - *tests/*
         PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:
             - *
-
-
-## usage example:
-#parameters:
-#    skip:
-#        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff:
-#            - src/Kernel.php
