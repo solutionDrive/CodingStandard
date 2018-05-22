@@ -24,6 +24,8 @@ before_install:
 install:
     - composer global require kherge/box
     - composer update --prefer-dist
+    - wget https://raw.githubusercontent.com/vworldat/symfony/67f66e0034c31fa596866e50312f48a2d208743e/src/Symfony/Component/Config/Resource/GlobResource.php -O vendor/symfony/config/Resource/GlobResource.php
+# GlobResource is patched to work inside phar. see https://stackoverflow.com/questions/50052815/phar-doesnt-work-after-compiling
 
 script:
     - composer validate --strict
