@@ -52,4 +52,4 @@ deploy:
   upload-dir: "phar"
   acl: "public-read"
   on:
-    branch: update-ecs-to-v4
+    branch: master
