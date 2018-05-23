@@ -4,7 +4,7 @@
   "files": [],
   "finder": [
     {
-      "name": ["*.php", "*.xsd", "*.neon", "LICENSE"],
+      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "LICENSE"],
       "exclude": ["Tests", "tests"],
       "in": "vendor"
     }
