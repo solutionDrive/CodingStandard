@@ -35,6 +35,7 @@ after_success:
     - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.1.yml; fi
     - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.2.yml; fi
     - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard-php70.yml ./build/easy-coding-standard-php7.0.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard-php56.yml ./build/easy-coding-standard-php5.6.yml; fi
     # The conditional checks here make sure that the S3 upload is not triggered at each matrix build. (save some data transfer cents...)
 
 before_deploy:
