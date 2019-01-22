@@ -211,7 +211,7 @@ services:
         header: |
             Created by solutionDrive GmbH
 
-            @copyright 2018 solutionDrive GmbH
+            @copyright solutionDrive GmbH
         location: after_declare_strict
 
 
