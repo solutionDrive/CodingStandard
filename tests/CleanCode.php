@@ -29,7 +29,7 @@ class CleanCode
         return $this->privateClassMember;
     }
 
-    public function thisUsesAInternalFunction(): string
+    public function thisUsesAnInternalFunction(): string
     {
         // Uses '\md5' instead of 'md5' to improve opcode handling
         return \md5('hashMe');
