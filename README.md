@@ -13,9 +13,9 @@ Installation & usage
     $ composer require --dev solutiondrive/coding-standard
     ```
     
-2. Include a configuration file in your `easy-coding-standard.neon`:
+2. Include a configuration file in your `easy-coding-standard.yml`:
 
-    ```neon
-    includes:
-        - vendor/solutiondrive/coding-standard/easy-coding-standard.neon 
+    ```yaml
+    imports:
+      - { resource: 'vendor/solutiondrive/coding-standard/easy-coding-standard.yml' } 
     ```
