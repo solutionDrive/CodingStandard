@@ -219,7 +219,7 @@ services:
 
 
 parameters:
-    skip_codes:
+    skip:
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.UselessDocComment:
             - "tests/*"
         PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:

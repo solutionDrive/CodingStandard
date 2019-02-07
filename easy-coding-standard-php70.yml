@@ -213,6 +213,6 @@ services:
 
 
 parameters:
-    skip_codes:
+    skip:
         PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:
             - "*"
