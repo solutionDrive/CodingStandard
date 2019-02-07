@@ -222,5 +222,6 @@ parameters:
     skip:
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.UselessDocComment:
             - "tests/*"
+            - "src/Behat/*"
         PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:
             - "*"
