@@ -4,8 +4,9 @@ dist: trusty
 sudo: false
 
 php:
-    - 7.1
-    - 7.2
+    - '7.1'
+    - '7.2'
+    - '7.3'
 
 env:
     global:
