@@ -34,4 +34,14 @@ class CleanCode
         // Uses '\md5' instead of 'md5' to improve opcode handling
         return \md5('hashMe');
     }
+
+    /**
+     * @todo Do something useful
+     *
+     * @dataProvider thisIsANiceFunction
+     */
+    public function dataProviderAndTodoAreAllowed(): bool
+    {
+        return true;
+    }
 }
