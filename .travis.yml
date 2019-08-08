@@ -4,8 +4,9 @@ dist: trusty
 sudo: false
 
 php:
-    - 7.1
-    - 7.2
+    - '7.1'
+    - '7.2'
+    - '7.3'
 
 env:
     global:
@@ -19,23 +20,22 @@ cache:
 
 before_install:
     - phpenv config-rm xdebug.ini || true
-    - export PATH=$PATH:$HOME/.composer/vendor/bin
+    - export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 install:
-    - composer global require kherge/box
+    - composer global require humbug/box
     - composer update --prefer-dist
-    - wget https://raw.githubusercontent.com/vworldat/symfony/67f66e0034c31fa596866e50312f48a2d208743e/src/Symfony/Component/Config/Resource/GlobResource.php -O vendor/symfony/config/Resource/GlobResource.php
-# GlobResource is patched to work inside phar. see https://stackoverflow.com/questions/50052815/phar-doesnt-work-after-compiling
 
 script:
     - composer validate --strict
     - vendor/bin/ecs check tests
 
 after_success:
-    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.1.yml; fi
-    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.2.yml; fi
-    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard-php70.yml ./build/easy-coding-standard-php7.0.yml; fi
-    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.2" ] ); then cp ./easy-coding-standard-php56.yml ./build/easy-coding-standard-php5.6.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.3" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.1.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.3" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.2.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.3" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.3.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.3" ] ); then cp ./easy-coding-standard-php70.yml ./build/easy-coding-standard-php7.0.yml; fi
+    - if ( [ "${TRAVIS_PHP_VERSION}" == "7.3" ] ); then cp ./easy-coding-standard-php56.yml ./build/easy-coding-standard-php5.6.yml; fi
     # The conditional checks here make sure that the S3 upload is not triggered at each matrix build. (save some data transfer cents...)
 
 before_deploy:

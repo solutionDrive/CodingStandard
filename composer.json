@@ -11,8 +11,8 @@
     "require": {
         "php": "^7.1",
 
-        "symplify/easy-coding-standard": "~4.5.0",
-        "symplify/package-builder": "~4.5.0"
+        "symplify/easy-coding-standard": "^6.0",
+        "symplify/package-builder": "^6.0"
     },
     "autoload": {
     }

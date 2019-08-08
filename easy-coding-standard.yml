@@ -190,9 +190,6 @@ services:
     PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer:
         space_before: none
     SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
-        usefulAnnotations:
-            - "@todo"
-            - "@dataProvider"
         enableEachParameterAndReturnInspection: true
 
     # Throwable
