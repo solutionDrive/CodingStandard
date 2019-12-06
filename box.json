@@ -6,6 +6,13 @@
       "in": "vendor"
     }
   ],
+  "files": [
+    "vendor/friendsofphp/php-cs-fixer/tests/TestCase.php"
+  ],
+  "directories": [
+    "vendor/friendsofphp/php-cs-fixer/tests/Test"
+  ],
+  "force-autodiscovery": true,
   "compactors": "KevinGH\\Box\\Compactor\\Php",
   "main": "vendor/symplify/easy-coding-standard/bin/ecs",
   "output": "build/ecs-standalone.phar"
