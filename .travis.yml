@@ -39,7 +39,7 @@ after_success:
     # The conditional checks here make sure that the S3 upload is not triggered at each matrix build. (save some data transfer cents...)
 
 before_deploy:
-    - box build
+    - box compile
     - mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${TRAVIS_PHP_VERSION}.phar
 
 deploy:
