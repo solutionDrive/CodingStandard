@@ -6,7 +6,7 @@
       "in": "vendor"
     }
   ],
-  "compactors": "Herrera\\Box\\Compactor\\Php",
+  "compactors": "KevinGH\\Box\\Compactor\\Php",
   "main": "vendor/symplify/easy-coding-standard/bin/ecs",
   "output": "build/ecs-standalone.phar"
 }
