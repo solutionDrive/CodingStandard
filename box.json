@@ -1,7 +1,4 @@
 {
-  "chmod": "0755",
-  "directories": [],
-  "files": [],
   "finder": [
     {
       "name": ["*.php", "*.xsd", "*.neon", "*.yml", "LICENSE"],
@@ -11,6 +8,5 @@
   ],
   "compactors": "Herrera\\Box\\Compactor\\Php",
   "main": "vendor/symplify/easy-coding-standard/bin/ecs",
-  "output": "build/ecs-standalone.phar",
-  "stub": true
+  "output": "build/ecs-standalone.phar"
 }
