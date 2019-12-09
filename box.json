@@ -1,7 +1,7 @@
 {
   "finder": [
     {
-      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "LICENSE"],
+      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "*.yaml", "*.xml", "LICENSE"],
       "exclude": ["Tests", "tests"],
       "in": "vendor"
     }
