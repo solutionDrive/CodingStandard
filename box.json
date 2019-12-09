@@ -1,16 +1,18 @@
 {
-  "chmod": "0755",
-  "directories": [],
-  "files": [],
   "finder": [
     {
-      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "LICENSE"],
+      "name": ["*.php", "*.xsd", "*.neon", "*.yml", "*.yaml", "*.xml", "LICENSE"],
       "exclude": ["Tests", "tests"],
       "in": "vendor"
     }
   ],
-  "compactors": "Herrera\\Box\\Compactor\\Php",
+  "files": [
+    "vendor/friendsofphp/php-cs-fixer/tests/TestCase.php"
+  ],
+  "directories": [
+    "vendor/friendsofphp/php-cs-fixer/tests/Test"
+  ],
+  "force-autodiscovery": true,
   "main": "vendor/symplify/easy-coding-standard/bin/ecs",
-  "output": "build/ecs-standalone.phar",
-  "stub": true
+  "output": "build/ecs-standalone.phar"
 }
