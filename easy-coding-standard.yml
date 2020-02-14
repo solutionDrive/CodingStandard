@@ -1,54 +1,57 @@
 services:
-    #  INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/php_codesniffer/psr2.neon
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\NamespaceDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\UseDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\ClassDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\PropertyDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\EndFileNewlineSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\ClosingTagSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ControlStructureSpacingSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\SwitchDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionClosingBraceSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\Files\ByteOrderMarkSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff: ~
+    # INLINED FROM vendor/symplify/easy-coding-standard/config/set/php_codesniffer/php-codesniffer-psr2.yaml
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\NamespaceDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Namespaces\UseDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\ClassDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Classes\PropertyDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\EndFileNewlineSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Files\ClosingTagSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ControlStructureSpacingSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\SwitchDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\ControlStructures\ElseIfDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\MethodDeclarationSniff:
+    PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionClosingBraceSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Files\ByteOrderMarkSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff:
     PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineEndingsSniff:
         eolChar: \n
     PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
         ignoreBlankLines: true
-    PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\DisallowMultipleStatementsSniff: ~
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\DisallowMultipleStatementsSniff:
     PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\ScopeIndentSniff:
         ignoreIndentationTokens:
             - T_COMMENT
             - T_DOC_COMMENT_OPEN_TAG
-    PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseKeywordSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseConstantSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\MethodScopeSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeKeywordSpacingSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\LowercaseFunctionKeywordsSniff: ~
+    PHP_CodeSniffer\Standards\Generic\Sniffs\WhiteSpace\DisallowTabIndentSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseKeywordSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\LowerCaseConstantSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Scope\MethodScopeSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeKeywordSpacingSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\LowercaseFunctionKeywordsSniff:
     PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\FunctionDeclarationArgumentSpacingSniff:
         equalsSpacing: 1
-    PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\ValidDefaultValueSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ControlSignatureSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeClosingBraceSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForEachLoopDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForLoopDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\LowercaseDeclarationSniff: ~
-    PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff: ~
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Functions\ValidDefaultValueSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Functions\MultiLineFunctionDeclarationSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Functions\FunctionCallArgumentSpacingSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ControlSignatureSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ScopeClosingBraceSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForEachLoopDeclarationSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\ForLoopDeclarationSniff:
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\ControlStructures\LowercaseDeclarationSniff:
+    PHP_CodeSniffer\Standards\Generic\Sniffs\ControlStructures\InlineControlStructureSniff:
 
 
-    #  INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/php_cs_fixer/psr2.neon
+    # INLINED FROM vendor/symplify/easy-coding-standard/config/set/php_cs_fixer/php-cs-fixer-psr2
+    # PSR1
+    PhpCsFixer\Fixer\Basic\EncodingFixer: ~
+    PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer: ~
+
     PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer: ~
     PhpCsFixer\Fixer\Basic\BracesFixer: ~
-    PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: ~
     PhpCsFixer\Fixer\ControlStructure\ElseifFixer: ~
     PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: ~
     PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer: ~
@@ -66,37 +69,57 @@ services:
     PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: ~
     PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
         elements:
-            - property
+            - 'property'
     PhpCsFixer\Fixer\Import\SingleImportPerStatementFixer: ~
     PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer: ~
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: ~
     PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: ~
     PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer: ~
-    PhpCsFixer\Fixer\Basic\EncodingFixer: ~
-    PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer: ~
 
 
-    # INLINED FROM: ../../../vendor/symplify/easy-coding-standard/config/clean-code.neon
+    # INLINED FROM vendor/symplify/easy-coding-standard/config/set/clean-code.yaml
+    # function ($var) use ($unused) { return $var; }    →   function ($var) { return $var; }
+    SlevomatCodingStandard\Sniffs\Functions\UnusedInheritedVariablePassedToClosureSniff: ~
+
+    # echo "hi";;   →   echo "hi";
+    SlevomatCodingStandard\Sniffs\PHP\UselessSemicolonSniff: ~
+
+    # ((new Class))->call()   →     (new Class)->call()
+    SlevomatCodingStandard\Sniffs\PHP\UselessParenthesesSniff: ~
+
     # use short array []
     PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
         syntax: short
+
     # detect dead code
-    SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
+    SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff:
+
     # drop dead use namespaces
-    PhpCsFixer\Fixer\Import\NoUnusedImportsFixer: ~
+    PhpCsFixer\Fixer\Import\NoUnusedImportsFixer:
+
     # and sort them A → Z
-    PhpCsFixer\Fixer\Import\OrderedImportsFixer: ~
+    PhpCsFixer\Fixer\Import\OrderedImportsFixer:
+
     # $value;;
-    PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer: ~
+    PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer:
+
     # final class { ... protected ... }
-    PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
+    PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer:
+
     # continue (2);
-    PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer: ~
+    PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer:
+
     # { echo 'hi'; }
-    PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer: ~
+    PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer:
+
+    # $var = $foo : $foo ? $bar → $var = $foo ?: $bar
+    SlevomatCodingStandard\Sniffs\ControlStructures\RequireShortTernaryOperatorSniff:
+
+    # $var = $var + foo → $var += $foo
+    SlevomatCodingStandard\Sniffs\Operators\RequireCombinedAssignmentOperatorSniff:
 
 
-
+    # ADDITIONAL RULES
     PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
         spacing: one
     PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
@@ -117,7 +140,6 @@ services:
     PhpCsFixer\Fixer\Phpdoc\NoBlankLinesAfterPhpdocFixer: ~
     PhpCsFixer\Fixer\Comment\NoEmptyCommentFixer: ~
     PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer: ~
-    PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer: ~
     PhpCsFixer\Fixer\Whitespace\NoExtraConsecutiveBlankLinesFixer:
         - curly_brace_block
         - extra
@@ -133,7 +155,6 @@ services:
     PhpCsFixer\Fixer\ControlStructure\NoTrailingCommaInListCallFixer: ~
     PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer: ~
     PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: ~
-    PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer: ~
     PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer: ~
     PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: ~
     PhpCsFixer\Fixer\ArrayNotation\NormalizeIndexBraceFixer: ~
@@ -168,11 +189,9 @@ services:
         use: echo
     PhpCsFixer\Fixer\PhpUnit\PhpUnitFqcnAnnotationFixer: ~
     PhpCsFixer\Fixer\Phpdoc\PhpdocNoAliasTagFixer: ~
-    PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
     PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: ~
 
     # new since PHP-CS-Fixer 2.6
-    PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer: ~
     PhpCsFixer\Fixer\ClassNotation\NoUnneededFinalMethodFixer: ~
     PhpCsFixer\Fixer\Semicolon\SemicolonAfterInstructionFixer: ~
     PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: ~
@@ -186,7 +205,6 @@ services:
     PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: ~
 
     # Typehints
-    PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: ~
     PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer:
         space_before: none
     SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff:
@@ -217,8 +235,16 @@ services:
 
 parameters:
     skip:
+        # INLINED FROM vendor/symplify/easy-coding-standard/config/set/php_codesniffer/php-codesniffer-psr2.yaml
+        # Only some rules from ControlStructureSpacingSniff are part of PSR-2, skip the rest:
+        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpacingAfterOpenBrace: ~
+        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.SpaceBeforeCloseBrace: ~
+        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.LineAfterClose: ~
+        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose: ~
+        # PSR-2 does not enforce line alignment (https://www.php-fig.org/psr/psr-2/#7-conclusion)
+        PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff.OpeningIndent: ~
+
+        # ADDITIONAL PARAMS
         SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff.UselessDocComment:
             - "tests/*"
             - "src/Behat/*"
-        PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\ControlStructureSpacingSniff.NoLineAfterClose:
-            - "*"
