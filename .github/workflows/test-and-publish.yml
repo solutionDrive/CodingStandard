@@ -48,20 +48,20 @@ jobs:
 
             - name: after success
               run: |
-                if ( [ "${TRAVIS_PHP_VERSION}" == "7.4" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.1.yml; fi
-                if ( [ "${TRAVIS_PHP_VERSION}" == "7.4" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.2.yml; fi
-                if ( [ "${TRAVIS_PHP_VERSION}" == "7.4" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.3.yml; fi
-                if ( [ "${TRAVIS_PHP_VERSION}" == "7.4" ] ); then cp ./easy-coding-standard.yml ./build/easy-coding-standard-php7.4.yml; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.3.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.4.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.0.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.1.php; fi
 
             - name: before deploy
               run: | 
                 box compile
-                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${TRAVIS_PHP_VERSION}.phar
+                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
 
             - name: before deploy
               run: |
                 box compile
-                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${TRAVIS_PHP_VERSION}.phar
+                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
 
             - name: deploy
               if:
