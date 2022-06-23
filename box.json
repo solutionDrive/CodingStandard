@@ -7,10 +7,10 @@
     }
   ],
   "files": [
-    "vendor/friendsofphp/php-cs-fixer/tests/TestCase.php"
+    "vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/tests/TestCase.php"
   ],
   "directories": [
-    "vendor/friendsofphp/php-cs-fixer/tests/Test"
+    "vendor/symplify/easy-coding-standard/vendor/friendsofphp/php-cs-fixer/tests/Test"
   ],
   "force-autodiscovery": true,
   "main": "vendor/symplify/easy-coding-standard/bin/ecs",
