@@ -58,11 +58,6 @@ jobs:
                 box compile
                 mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
 
-            - name: before deploy
-              run: |
-                box compile
-                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
-
             - name: deploy
               if:
                 contains('
