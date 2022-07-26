@@ -1,0 +1,72 @@
+name: test-and-publish
+
+on: [ push, pull_request ]
+
+jobs:
+    test-and-publish:
+        name: '[PHP ${{ matrix.php-version }} Tests and Publish'
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php-version: [ 7.4, 8.0, 8.1 ]
+
+        steps:
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: composer:v1
+
+            - uses: actions/checkout@v2
+              with:
+                  clean: false
+
+            - name: Cache composer
+              uses: actions/cache@v2
+              with:
+                  path: ~/vendor/
+                  key: php-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
+                  restore-keys: |
+                      php-${{ matrix.php-version }}
+                      php-${{ matrix.php-version }}
+
+            - name: before install
+              run: |
+                phpenv config-rm xdebug.ini || true
+                export PATH=$PATH:$HOME/.config/composer/vendor/bin:$HOME/.composer/vendor/bin
+
+            - name: Composer install
+              run: |
+                composer global require humbug/box
+                composer update --prefer-dist
+
+            - name: script
+              run: |
+                composer validate --strict
+                vendor/bin/ecs check tests
+
+            - name: after success
+              run: |
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.3.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.4.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.0.php; fi
+                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.1.php; fi
+
+            - name: before deploy
+              run: | 
+                box compile
+                mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
+
+            - name: deploy
+              if:
+                contains('
+                refs/heads/master
+                ', github.ref)
+              uses: shallwefootball/s3-upload-action@master
+              id: S3
+              with:
+                aws_key_id: ${{ secrets.S3_BUILD_ACCESS_KEY }}
+                aws_secret_access_key: ${{ secrets.S3_BUILD_SECRET_KEY }}
+                aws_bucket: ${{ secrets.S3_BUILD_BUCKET }}
+                source_dir: 'build'
