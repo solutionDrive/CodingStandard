@@ -70,3 +70,4 @@ jobs:
                 aws_secret_access_key: ${{ secrets.S3_BUILD_SECRET_KEY }}
                 aws_bucket: ${{ secrets.S3_BUILD_BUCKET }}
                 source_dir: 'build'
+                destination_dir: 'phar'
