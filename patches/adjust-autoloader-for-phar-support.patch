@@ -1,0 +1,53 @@
+--- a/bin/ecs.php
++++ b/bin/ecs.php
+@@ -20,7 +20,8 @@
+ }
+ $autoloadIncluder->includeCwdVendorAutoloadIfExists();
+ $autoloadIncluder->loadIfNotLoadedYet(__DIR__ . '/../vendor/scoper-autoload.php');
+-$autoloadIncluder->autoloadProjectAutoloaderFile('/../../autoload.php');
++// Disable the following function since the autoloader is already loaded via the PHAR stub
++// $autoloadIncluder->autoloadProjectAutoloaderFile('/../../autoload.php');
+ $autoloadIncluder->includeDependencyOrRepositoryVendorAutoloadIfExists();
+ $autoloadIncluder->includePhpCodeSnifferAutoloadIfNotInPharAndInitliazeTokens();
+ /**
+@@ -106,13 +107,36 @@
+         if (\in_array($file, $this->alreadyLoadedAutoloadFiles, \true)) {
+             return;
+         }
+-        $realPath = \realpath($file);
+-        if (!\is_string($realPath)) {
+-            return;
+-        }
++        // Use a custom function to normalize the path, since realpath cannot be used in the PHAR file context.
++        $realPath = $this->normalizePath($file);
+         $this->alreadyLoadedAutoloadFiles[] = $realPath;
+         require_once $file;
+     }
++
++    /**
++     * @source https://stackoverflow.com/a/20545583
++     */
++    private function normalizePath($path, $separator = '\\/')
++    {
++        // Remove any kind of funky unicode whitespace
++        $normalized = preg_replace('#\p{C}+|^\./#u', '', $path);
++
++        // Path remove self referring paths ("/./").
++        $normalized = preg_replace('#/\.(?=/)|^\./|\./$#', '', $normalized);
++
++        // Regex for resolving relative paths
++        $regex = '#\/*[^/\.]+/\.\.#Uu';
++
++        while (preg_match($regex, $normalized)) {
++            $normalized = preg_replace($regex, '', $normalized);
++        }
++
++        if (preg_match('#/\.{2}|\.{2}/#', $normalized)) {
++            throw new LogicException('Path is outside of the defined root, path: [' . $path . '], resolved: [' . $normalized . ']');
++        }
++
++        return trim($normalized, $separator);
++    }
+ }
+ try {
+     $input = new ArgvInput();
