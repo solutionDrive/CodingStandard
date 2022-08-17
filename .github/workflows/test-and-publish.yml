@@ -55,6 +55,7 @@ jobs:
             - name: before deploy
               run: | 
                 box compile
+                ./build/ecs-standalone.phar check tests
                 mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
 
             - name: deploy
