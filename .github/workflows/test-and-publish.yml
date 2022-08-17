@@ -38,8 +38,8 @@ jobs:
 
             - name: Composer install
               run: |
-                composer global require humbug/box
-                composer update --prefer-dist
+                if ( [ "${{ matrix.php-version }}" == "8.1" ] ); then composer global require humbug/box:^3.16 --ignore-platform-reqs; else composer global require humbug/box; fi
+                composer update
 
             - name: script
               run: |
