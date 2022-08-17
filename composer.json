@@ -27,6 +27,7 @@
         }
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
         "patches": {
             "symplify/easy-coding-standard": {
                 "Adjust autoloader for PHAR support": "patches/adjust-autoloader-for-phar-support.patch"
