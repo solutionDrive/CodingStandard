@@ -43,7 +43,6 @@ jobs:
 
             - name: script
               run: |
-                composer validate --strict
                 vendor/bin/ecs check tests
 
             - name: after success
