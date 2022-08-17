@@ -1,16 +1,28 @@
 --- a/bin/ecs.php
 +++ b/bin/ecs.php
-@@ -20,7 +20,8 @@
- }
- $autoloadIncluder->includeCwdVendorAutoloadIfExists();
- $autoloadIncluder->loadIfNotLoadedYet(__DIR__ . '/../vendor/scoper-autoload.php');
--$autoloadIncluder->autoloadProjectAutoloaderFile('/../../autoload.php');
-+// Disable the following function since the autoloader is already loaded via the PHAR stub
-+// $autoloadIncluder->autoloadProjectAutoloaderFile('/../../autoload.php');
- $autoloadIncluder->includeDependencyOrRepositoryVendorAutoloadIfExists();
- $autoloadIncluder->includePhpCodeSnifferAutoloadIfNotInPharAndInitliazeTokens();
- /**
-@@ -106,13 +107,36 @@
+@@ -69,6 +69,21 @@
+         if (!\is_file($path)) {
+             return;
+         }
++
++        // Verify that the autoloader has not already been included during the creation of the PHAR.
++        $composerAutoloadInitClassNames = array_filter(
++            get_declared_classes(),
++            fn($className) => preg_match('/^ComposerAutoloaderInit/', $className)
++        );
++
++        $autoloaderSource = file_get_contents($path);
++        foreach ($composerAutoloadInitClassNames as $autoloadInitClassName) {
++            if (strpos($autoloaderSource, $autoloadInitClassName) !== false) {
++                echo $autoloadInitClassName . 'is already loaded';
++                return;
++            }
++        }
++
+         $this->loadIfNotLoadedYet($path);
+     }
+     public function includePhpCodeSnifferAutoloadIfNotInPharAndInitliazeTokens() : void
+@@ -106,13 +121,36 @@
          if (\in_array($file, $this->alreadyLoadedAutoloadFiles, \true)) {
              return;
          }
