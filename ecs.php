@@ -6,7 +6,7 @@ use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->paths([__DIR__ . 'tests/']);
+    $ecsConfig->paths([__DIR__ . '/tests/']);
 
     $ecsConfig->parallel();
 
