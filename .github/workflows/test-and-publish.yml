@@ -16,7 +16,7 @@ jobs:
             - uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  tools: composer:v1
+                  tools: composer:v2
 
             - uses: actions/checkout@v2
               with:
@@ -38,12 +38,11 @@ jobs:
 
             - name: Composer install
               run: |
-                composer global require humbug/box
-                composer update --prefer-dist
+                if ( [ "${{ matrix.php-version }}" == "8.1" ] ); then composer global require humbug/box:^3.16 --ignore-platform-reqs; else composer global require humbug/box; fi
+                composer update
 
             - name: script
               run: |
-                composer validate --strict
                 vendor/bin/ecs check tests
 
             - name: after success

@@ -9,11 +9,29 @@
         }
     ],
     "require": {
-        "php": "^7.1||^8.0",
+        "php": "^7.4||^8.0",
         "symplify/easy-coding-standard": "^11.0",
-        "symplify/package-builder": "^9.0",
-        "slevomat/coding-standard": "^8.0"
+        "slevomat/coding-standard": "^8.0",
+        "cweagans/composer-patches": "^1.7"
     },
-    "autoload": {
+    "patches": {
+        "symplify/easy-coding-standard": {
+            "Adjust autoloader for PHAR support": "patches/adjust-autoloader-for-phar-support.patch"
+        }
+    },
+    "config": {
+        "preferred-install": "source",
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true
+        }
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "symplify/easy-coding-standard": {
+                "Adjust autoloader for PHAR support": "patches/adjust-autoloader-for-phar-support.patch"
+            }
+        }
     }
 }

@@ -23,10 +23,10 @@ Installation & usage
 Phar usage
 ----------
 
-To create the phar, you need to install ```kherge/box``` globally:
+To create the phar, you need to install ```humbug/box``` globally:
 (The global composer bin path needs to be available in $PATH)
 
-    composer global require kherge/box
+    composer global require humbug/box
 
 Install the dependencies
 
