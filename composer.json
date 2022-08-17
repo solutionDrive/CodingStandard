@@ -14,11 +14,6 @@
         "slevomat/coding-standard": "^8.0",
         "cweagans/composer-patches": "^1.7"
     },
-    "patches": {
-        "symplify/easy-coding-standard": {
-            "Adjust autoloader for PHAR support": "patches/adjust-autoloader-for-phar-support.patch"
-        }
-    },
     "config": {
         "preferred-install": "source",
         "allow-plugins": {

@@ -43,14 +43,12 @@ jobs:
 
             - name: script
               run: |
+                composer validate --strict
                 vendor/bin/ecs check tests
 
             - name: after success
               run: |
-                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.3.php; fi
-                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs7.4.php; fi
-                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.0.php; fi
-                if ( [ "${{ matrix.php-version }}" == "7.4" ] ); then cp ./ecs.php ./build/ecs8.1.php; fi
+                cp ./ecs.php ./build/ecs${{ matrix.php-version }}.php
 
             - name: before deploy
               run: | 
