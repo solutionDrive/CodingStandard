@@ -44,16 +44,16 @@ jobs:
             - name: script
               run: |
                 composer validate --strict
-                vendor/bin/ecs check tests
+                vendor/bin/ecs check -- ecs.php tests/
 
             - name: after success
               run: |
                 cp ./ecs.php ./build/ecs${{ matrix.php-version }}.php
 
             - name: before deploy
-              run: | 
+              run: |
                 box compile
-                ./build/ecs-standalone.phar check tests
+                ./build/ecs-standalone.phar check -- ecs.php tests/
                 mv ./build/ecs-standalone.phar ./build/coding-standard-standalone.ecs.php${{ matrix.php-version }}.phar
 
             - name: deploy
