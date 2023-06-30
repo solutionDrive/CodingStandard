@@ -9,17 +9,17 @@
         }
     ],
     "require": {
-        "php": "^7.4||^8.0",
-        "symplify/easy-coding-standard": "^11.0",
+        "php": "^7.4 || ^8.0",
+        "cweagans/composer-patches": "^1.7",
         "slevomat/coding-standard": "^8.0",
-        "cweagans/composer-patches": "^1.7"
+        "symplify/easy-coding-standard": "^11.0"
     },
     "config": {
-        "preferred-install": "source",
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "cweagans/composer-patches": true
-        }
+        },
+        "preferred-install": "source"
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
