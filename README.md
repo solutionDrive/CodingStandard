@@ -10,7 +10,7 @@ Installation & usage
 1. Install this package:
 
     ```bash
-    $ composer require --dev solutiondrive/coding-standard
+    composer require --dev solutiondrive/coding-standard
     ```
     
 2. Include a configuration file in your `easy-coding-standard.yml`:
@@ -23,23 +23,23 @@ Installation & usage
 Phar usage
 ----------
 
-To create the phar, you need to install ```humbug/box``` globally:
+To create the phar, you need to install `humbug/box` globally:
 (The global composer bin path needs to be available in $PATH)
 
     composer global require humbug/box
 
 Install the dependencies
 
-    composer install --optimize-autoloader -n
+    composer update --optimize-autoloader
 
 Create the phar file
 
-    box build -c box.json
+    composer exec box -- compile
     
-Perhaps it is necessary to allow php to create a phar
+Perhaps it is necessary to allow PHP to create a phar
 
-    php -d phar.readonly=0 ~/.composer/vendor/bin/box build -c box.json
+    php -d phar.readonly=0 $(which composer) exec box -- compile
 
-The newly created phar file can be used just like the ```ecs``` binary is used:
+The newly created phar file can be used just like the `ecs` binary is used:
 
-    ecs-standalone.phar --help
+    ./build/ecs-standalone.phar list
